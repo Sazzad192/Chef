@@ -18,11 +18,11 @@ use App\Http\Controllers\chefcontroller;
 Route::get('/', function () {
     return view('welcome');
 });
-Route :: get('/index', [pagescontroller::class,'index']);
+Route :: get('/home', [pagescontroller::class,'index'])->name('index');
 
-Route :: get('/login', [pagescontroller::class,'login']);
+Route :: get('/login', [pagescontroller::class,'login'])->name('login');
 
-Route :: get('/reg', [pagescontroller::class,'reg']);
+Route :: get('/reg', [pagescontroller::class,'reg'])->name('reg');
 
 Route :: get('/allpackage', [pagescontroller::class,'allpackage']);
 
@@ -31,9 +31,9 @@ Route :: get('/bookingprocess', [pagescontroller::class,'bookingprocess']);
 Route :: get('/suggestedchef', [pagescontroller::class,'suggestedchef']);
 
 //start chef routing  
-Route :: get('chef/cheflist', [chefcontroller::class,'cheflist']);
+Route :: get('chef/cheflist', [chefcontroller::class,'cheflist'])->name('chef.cheflist');
 
-Route :: get('chef/chefdetails/{id}/{name}/{location}', [chefcontroller::class,'chefdetails']);
+Route :: get('chef/chefdetails/{id}/{name}/{location}', [chefcontroller::class,'chefdetails'])->name('chefdetails'); // name routing
 
 Route :: get('chef/creatchef',[chefcontroller::class, 'creatchef']);
 

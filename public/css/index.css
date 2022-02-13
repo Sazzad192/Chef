@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.row {
+    padding-bottom: 30px;
+}
+
+.space {
+    padding: 20px;
+}
+
+.space a {
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    background: rgb(245, 240, 240);
+    box-shadow: 0 0.125rem 0.25rem 0 rgb(0 0 0 / 11%);
+    font-size: 16.17px;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    padding: 0 1rem;
+}
+
+.name {
+
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #000;
+    margin: 20px 0 10px;
+}
+
+.dep {
+
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.54);
+    margin: 0 0 10px;
+}
+.logo{
+    height: 70px;
+    width: 60px;
+    margin: 0px 60px 0px 60px;
+}

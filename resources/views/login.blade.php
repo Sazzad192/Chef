@@ -1,5 +1,3 @@
-@extends('layouts.commonhf')
-@section('content2')
   <!DOCTYPE html>
   <html>
   <body>
@@ -29,4 +27,3 @@
 
   </body>
   </html>
-@endsection

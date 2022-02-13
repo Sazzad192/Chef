@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\chef;
+use App\Models\layouts;
 
 class pagescontroller extends Controller
 

@@ -60,10 +60,8 @@ class chefcontroller extends Controller
         ->with('n', $req-> name)
         ->with('id',$req-> id)
         ->with('loc',$req-> location)
-        ->with('food',[]);;
-       
-        
+        ->with('food',[]);
     }
-
+    
 }
 ?>

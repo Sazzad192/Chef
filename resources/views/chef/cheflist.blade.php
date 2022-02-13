@@ -1,5 +1,6 @@
 <h1>chef list</h1>
-
+<!-- iclude hearder -->
+@include('layouts.header')
 <table>
     <tr>
         <th>ID</th>
@@ -10,7 +11,12 @@
     @foreach($chef as $c)
         <tr>
             <td>{{$c->id}}</td>
-            <td><a href="chefdetails/">{{$c->name}}</a></td>
+            <!-- name routing use link -->
+            <td>
+                <a href="{{route('chefdetails',['id'=>$c->id, 'name'=>$c->name, 'location'=>$c->loc ])}}">
+                    {{$c->name}}
+                </a>
+            </td>
             <td>{{$c->food}}</td>
             <td>{{$c->loc}}</td>
         </tr>
