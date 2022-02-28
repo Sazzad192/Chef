@@ -1,29 +1,34 @@
-  <!DOCTYPE html>
-  <html>
-  <body>
+@extends('layouts.header')
+@section('login-page')
 
-  <h1>Login Form</h1>
+<br> <br> <br>
 
-  <form method="post">
+<center>
+<form action="" method="post">
+  {{csrf_field()}}
+  <div class="Login" >
+    <br>
+    <h3><b>Login System</b></h3> <br>
+
+    <!-- --------------------User name----------------------- -->
+    <input type="text" placeholder="Enter Username" name="uname" required><br>
+    @error('uname')
+      <span class="text-danger">{{$message}}</span>
+    @enderror
+    <br><br> 
+    <!-- --------------------Password----------------------- -->
+    <input type="password" placeholder="Enter Password" name="psw" required>
     
-    <div class="Login" >
-      <label for="uname"></label><br>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-      
-      <br><br>
+    <br><br>
+        
+    <button type="submit"> Login </button>
+  </div>
 
-      <label for="psw"></label><br>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-      
-      <br><br>
-          
-      <button type="submit" >Login</button>
-    </div>
+  <div class="Login">
+    <br>
+    <a href="{{route('reg')}}"> Don't have any account </a>
+  </div>
+</form>
+</center>
 
-    <div class="Login" ><br>
-      <span >Can't access<a href="#">your account?</a></span>
-    </div>
-  </form>
-
-  </body>
-  </html>
+@endsection

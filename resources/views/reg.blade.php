@@ -1,57 +1,98 @@
-<!DOCTYPE html>
-<html>
-<body>
-<form >
+@extends('layouts.header')
+@section('reg-page')
+<br> <br> <br> <br> <br>
+<center>
+<form action="" method="post">
+  {{csrf_field()}}
   <div class="Registration">
     <h1>Registration Form</h1>
+    <br>
+    <!-- ------------------------ First Name ------------------ -->
+    <!-- ---- value- old meance that presearve previous values --- -->
+    <input type="text" placeholder="first name" name="fname" value="{{old('fname')}}" id="First Name" required>
+    @error('fname')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+    <br><br>
+    <!-- ------------------------ End First Name ------------------ -->
 
-    <label for="First Name"></label>
-    <input type="text" placeholder="first name" name="First Name" id="First Name" required>
+    <!-- ------------------------Last Name------------------ -->
+    <input type="text" placeholder="last name" name="lname" value="{{old('lname')}}" id="Last Name" required> 
+    @error('lname')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+    <br><br>
+    <!-- ------------------------ End Last Name------------------ -->
 
-    <label for="Last Name"></label>
-    <input type="text" placeholder="last name" name="Last Name" id="Last Name" required><br><br>
-
-    
-                        <input type="radio" id="Male" name="Male" value="Male">
-                        <label for="Male">Male</label>
-                        <input type="radio" id="Female" name="Female" value="Female">
-                        <label for="Female">Female</label><br><br>
+    <!-- ------------------------gender------------------ -->
+    <input type="radio" id="Male" name="gender" value="Male" required>
+      <label for="Male"> Male </label>
+    <input type="radio" id="Female" name="gender" value="Female" required>
+      <label for="Female"> Female </label> 
+    @error('gender')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+    <br><br>
+    <!-- ------------------------ End gender------------------ -->
                         
-                   
-    <label for="Date"></label>
-    <input type="text" placeholder="DD" name="Date" id="Date" required>
+    <!-- -------------------------Date-------------------- -->     
+    <label for="Date"> Date </label>
+    <input type="text" placeholder="DD" name="dob" id="Date" required>
 
-    <label for="Date"></label>
-    <input type="text" placeholder="MM" name="Date" id="Date" required>
+    <label for="Date">Month</label>
+    <input type="text" placeholder="MM" name="dob" id="Date" required>
     
-    <label for="Date"></label>
-    <input type="text" placeholder="YYYY" name="Date" id="Date" required><br><br>
+    <label for="Date">Year</label>
+    <input type="text" placeholder="YYYY" name="dob" id="Date" required> <br><br>
+    <!-- ------------------------- End Date-------------------- -->
 
-    <label for="email"></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    <!-- ------------------------Email---------------------- -->
+    <label for="email">E-mail</label>
+    <input type="text" placeholder="Enter Email" name="email" value="{{old('email')}}" id="email" required>
+    @error('email')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+    <br><br>
+    <!-- ------------------------ End Email ---------------------- -->
 
-    <label for="Ph number"></label>
-    <input type="text" placeholder="+88" name="Ph number" id="Ph number" required>
+    <!-- ---------------------Phone Number------------------- --> 
+    <label for="Ph number">Phone-number</label>
+    <input type="text" placeholder="01" name="pnumber" value="{{old('pnumber')}}" id="Ph number" required>
+    @error('pnumber')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+    <br><br>
+    <!-- --------------------- End Phone Number ------------------- -->
 
-    <label for="Ph number"></label>
-    <input type="text" placeholder="Phone number" name="Ph number" id="Ph number" required><br><br>
-    
-    <label for="psw"></label>
+    <!-- ----------------------Password------------------------- --> 
+    <label for="psw">Password</label>
     <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-
-    <label for="psw-repeat"></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required><br><br>
+    @error('psw')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+    <br><br>
+    <!-- ---------------------- End Password ------------------------- --> 
+    
+    <!-- -------------------Confirm Password-------------------- --> 
+    <label for="psw-repeat">Confirm-Password</label>
+    <input type="password" placeholder="Repeat Password" name="conpsw" id="psw-repeat" required>
+    @error('conpsw')
+    <span class="text-danger">{{$message}}</span>
+    @enderror
+    <br><br>
+    <!-- ------------------- Confirm Password End -------------------- -->
 
     <input type="checkbox" id="v1" name="v1" value="I agree with the terms and condition">
-    <label for="v1">I agree with the terms and condition</label><br><br>
+    <label for="v1">I agree with the terms and condition</label>
+    <br><br>
     <input type="checkbox" id="v2" name="v2" value="I want to recieve the newsletter">
-    <label for="v2">I want to recieve the newsletter</label><br><br>
+    <label for="v2">I want to recieve the newsletter</label>
+    <br><br>
                         
     
 
-    <button type="submit" class="registerbtn">Registration</button>
+    <button type="submit" value="" class=" ">Registration</button>
   </div>
 </form>
-
-</body>
-</html>
+</center>
+@endsection
