@@ -10,9 +10,9 @@
     <!-- ------------------------ First Name ------------------ -->
     <!-- ---- value- old meance that presearve previous values --- -->
     <input type="text" placeholder="first name" name="fname" value="{{old('fname')}}" id="First Name" required>
-    @error('fname')
-    <span class="text-danger">{{$message}}</span>
-    @enderror
+      @error('fname')
+        <span class="text-danger">{{$message}}</span>
+      @enderror
     <br><br>
     <!-- ------------------------ End First Name ------------------ -->
 

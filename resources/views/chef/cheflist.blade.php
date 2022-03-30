@@ -1,6 +1,6 @@
 <h1>chef list</h1>
 <!-- iclude hearder -->
-@include('layouts.header')
+<!-- @include('layouts.header') -->
 <table>
     <tr>
         <th>ID</th>
@@ -20,5 +20,5 @@
             <td>{{$c->food}}</td>
             <td>{{$c->loc}}</td>
         </tr>
-    @endforeach
+    <!-- @endforeach -->
 </table>

@@ -24,8 +24,7 @@ Route :: get('/home', [pagescontroller::class,'index'])->name('index');
 
 Route :: get('/login', [pagescontroller::class,'login'])->name('login');
 
-// form submition
-Route :: post('/login',[pagescontroller::class, 'loginsubmit'])->name('loginsumbmit');
+Route :: post('/login',[pagescontroller::class, 'loginsubmit'])->name('loginsumbmit');  // form submition
 
 // --------------- login part end ---------------
 
@@ -33,8 +32,7 @@ Route :: post('/login',[pagescontroller::class, 'loginsubmit'])->name('loginsumb
 
 Route :: get('/registration', [pagescontroller::class,'reg'])->name('reg');
 
-//Registration form submition
-Route :: post('/registration',[pagescontroller::class,'regsubmit'])->name('regsubmit');
+Route :: post('/registration',[pagescontroller::class,'regsubmit'])->name('regsubmit');  //Registration form submition
 
 //--------------Registration part end--------------------------
 
@@ -56,6 +54,8 @@ Route :: get('chef/getchef', [chefcontroller::class,'getchef']);
 
 //-----------------end chef routing -------------------------
 
+Route :: get('/ramadan',[pagescontroller::class,'calender'])->name('calender');//office work
+
 Route :: get('/confirmorder', [pagescontroller::class,'confirmorder']);
 
 Route :: get('/invoice', [pagescontroller::class,'invoice']);
@@ -65,6 +65,3 @@ Route :: get('/payment', [pagescontroller::class,'payment']);
 Route :: get('/myprofile', [pagescontroller::class,'myprofile']);
 
 Route :: get('/chefprofile', [pagescontroller::class,'chefprofile']);
-
-
-

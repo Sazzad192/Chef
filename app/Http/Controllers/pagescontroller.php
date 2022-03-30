@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\user;
+use App\Models\User;
 
 class pagescontroller extends Controller
 
@@ -24,19 +24,30 @@ class pagescontroller extends Controller
     // --------login page submit---------
     public function loginsubmit(Request $req)
     {
-        // request class validation function can allow associative arrow
+        // request class validation function can allow associative array
         $req->validate(
             [
-                'uname'=>'required|min:3',
+                'email'=>'required|email',
                 'psw'=>'required'
             ]
         );
-        return " <center><h1> $req->uname, Welcome to Je-Radhe </h1></center>";
+
+        $st = User::where('email', $req->email)->where('psw', $req->pass)->first();
+        if($st)
+        {
+            // session()->put('logged',$st->fname);
+            return redirect()->route('home');
+        }
+        else{
+            session()->flash('msg','Email or password dose not exsist');
+            return redirect()->route('login');
+        }
+        // return " <center><h1> $req->uname, Welcome to Je-Radhe </h1></center>";
     }
 
-    public function regsubmit(Request $req)
+    public function regsubmit(Request $request)
     {
-        $req->validate(     
+        $request->validate(     
             [
                 'fname'=>'required|min:3',
                 'lname'=>'required',
@@ -48,19 +59,22 @@ class pagescontroller extends Controller
                 'conpsw'=>'required|same:psw'
             ]);
 
-            $st = new user();
+            $st = new User();
 
-            $st->name = $req->fname;
-            $st->name = $req->lname;
-            $st->name = $req->gender;
-            $st->name = $req->dob;
-            $st->name = $req->email;
-            $st->name = $req->pnumber;
-            $st->name = $req->psw;
-            $st->name = $req->conpsw;
-            $st->save();              //query will execute for save.
+            $st->fname = $request->fname;
+            $st->lname = $request->lname;
+            $st->gender = $request->gender;
+            // $st->dob = $request->dob;
+            $st->email = $request->email;
+            $st->pnumber = $request->pnumber;
+            $st->psw = $request->psw;
+            $st->conpsw = $request->conpsw;
 
-        return " <center> You are most Welcome $req->fname, $req->lname, This is Je-Radhe </center> ";
+            $st->save();             //query will execute for save.
+            session()->flash('msg','Registration successful, Please login!!');
+            return redirect()->route('login'); 
+
+        // return " <center> You are most Welcome $request->fname, $request->lname, This is Je-Radhe </center> ";
     }
 
     //<!-- Registration page -->
@@ -119,4 +133,14 @@ class pagescontroller extends Controller
     {
         return view ('chefprofile');
     } 
+    public function calender()
+    {
+        $date = "1-March-2022";
+        $stime= "4:20 am";
+        $etime= "6:00pm";
+        return view('office.calender')
+        ->with('date',$date)
+        ->with('stime', $stime)
+        ->with('etime',$etime);
+    }
 }

@@ -28,14 +28,14 @@ class chefcontroller extends Controller
             $chef = array( "id" => $i+1, "name" => "Chef ".($i+1), "food" => "Food-Type", "loc" => "Puran Dhaka");
             
             $chef = (object)$chef;
-            $chefs[] = $chef;
+            $chefs[] = $chef;    
         }
 
         return view('chef.cheflist')
         ->with('chef', $chefs);
     }
     
-    public function creatchef()
+    public function creatchef() 
     {
         return view('chef.creatchef');
     }
